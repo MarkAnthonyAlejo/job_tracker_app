@@ -10,8 +10,12 @@ const app = express();
 const PORT = 8081;
 const router = express.Router();
 
-app.get("/home", (req, res) => {
-  res.json({ message: "Hello from Express + ES Modules!" });
+// app.get("/home", (req, res) => {
+//   res.json({ message: "Hello from Express + ES Modules!" });
+// });
+
+app.get("/", (req, res) => {
+  res.json({ message: "Job Tracker is live!" });
 });
 
 app.use(
