@@ -7,7 +7,7 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 const router = express.Router();
 
 // app.get("/home", (req, res) => {
