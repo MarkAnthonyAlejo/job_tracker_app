@@ -10,7 +10,7 @@ export default function Login() {
   const token = "your_token_value_here";
 
   const resgisterUser = async () => {
-    const res = await fetch("http://localhost:8081/users/register", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export default function Login() {
   };
 
   const loginUser = async () => {
-    const res = await fetch("http://localhost:8081/users/login", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

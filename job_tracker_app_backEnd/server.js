@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [ "http://localhost:5173", "http://https://job-tracker-app-seven.vercel.app "],
     credentials: true,
   })
 );
