@@ -2,8 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { UserCircle, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import NewJobModel from "./NewJobModel";
-import EditJobModel from "./EditJobModel";
+import NewJobModel from "./newJobModel";
+import EditJobModel from "./editJobModel";
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +39,7 @@ const Home = () => {
 
   useEffect(() => {
     const getUsersJobs = async () => {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/jobs/userJob`, {
+      const res = await fetch("http://localhost:8081/jobs/userJob", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const Home = () => {
   const fetchDataByStatus = async (status) => {
     try {
       const res = await fetch(
-        `${process.env.REACT_APP_API_URL}/jobs/filter?status=${status}`,
+        `http://localhost:8081/jobs/filter?status=${status}`,
         {
           method: "GET",
           headers: {
@@ -73,7 +73,7 @@ const Home = () => {
 
   const showAllJobs = async () => {
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/jobs/userJob`, {
+      const res = await fetch(`http://localhost:8081/jobs/userJob`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const Home = () => {
   const removeJob = async (job) => {
     // console.log(job)
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/jobs/${job.id}`, {
+      const res = await fetch(`http://localhost:8081/jobs/${job.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -100,7 +100,7 @@ const Home = () => {
     } catch (error) {
       console.error("Error deleting Job:", error);
     }
-    const resUpdatedJob = await fetch(`${process.env.REACT_APP_API_URL}/jobs/userJob`, {
+    const resUpdatedJob = await fetch(`http://localhost:8081/jobs/userJob`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
