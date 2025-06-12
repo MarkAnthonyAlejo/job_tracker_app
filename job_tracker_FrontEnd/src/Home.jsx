@@ -2,8 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { UserCircle, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import NewJobModel from "./newJobModel";
-import EditJobModel from "./editJobModel";
+import NewJobModel from "./NewJobModel";
+import EditJobModel from "./EditJobModel";
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
