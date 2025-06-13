@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-const EditJobModel = ({ job, onClose, setJobs }) => {
+const EditJob = ({ job, onClose, setJobs }) => {
   const [companyName, setCompanyName] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [status, setStatus] = useState("");
@@ -143,4 +143,4 @@ const EditJobModel = ({ job, onClose, setJobs }) => {
   );
 };
 
-export default EditJobModel;
+export default EditJob;
