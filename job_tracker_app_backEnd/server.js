@@ -18,7 +18,7 @@ app.use(
   cors({
     origin: [ 
       "http://localhost:5173", 
-      "http://https://job-tracker-app-seven.vercel.app"],
+      "https://job-tracker-app-backend.onrender.com"],
     credentials: true,
   })
 );
