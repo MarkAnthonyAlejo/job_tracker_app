@@ -9,6 +9,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8081;
 const router = express.Router();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://https://job-tracker-app-seven.vercel.app",
+];
 
 app.get("/", (req, res) => {
   res.json({ message: "Job Tracker is live!" });
@@ -16,10 +20,13 @@ app.get("/", (req, res) => {
 
 app.use(
   cors({
-    origin: [ 
-      "http://localhost:5173", 
-      "http://https://job-tracker-app-seven.vercel.app "
-    ],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
