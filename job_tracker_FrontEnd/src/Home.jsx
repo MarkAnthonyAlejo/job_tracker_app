@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import { UserCircle, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import NewJobModel from "./NewJobModel";
-import EditJobModel from "./editJobModel";
+import EditJobModel from "../path/to/EditJobModel";
+
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [newJobModal, setNewJobModal] = useState(false);
+  const [newJobModel, setNewJobModel] = useState(false);
   const [jobs, setJobs] = useState([]);
-  const [editModal, seteditModal] = useState(false);
+  const [editModel, setEditModel] = useState(false);
   const [jobToEdit, setJobToEdit] = useState(null);
 
   const token = localStorage.getItem("token");
@@ -22,7 +23,7 @@ const Home = () => {
 
   const handleEditClick = (job) => {
     setJobToEdit(job);
-    seteditModal(true);
+    setEditModel(true);
   };
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const Home = () => {
 
   const handleAddJob = (newJob) => {
     setJobs((prevJobs) => [...prevJobs, newJob]);
-    setNewJobModal(false);
+    setNewJobModel(false);
     console.log(newJob, "<-- JOB Added");
   };
 
@@ -186,18 +187,18 @@ const Home = () => {
       <div className="flex justify-end mb-6">
         <button
           type="button"
-          onClick={() => setNewJobModal(true)}
+          onClick={() => setNewJobModel(true)}
           className="bg-green-600 text-white px-6 py-3 rounded-lg shadow hover:bg-green-700 transition duration-300"
         >
           Post Job
         </button>
       </div>
 
-      {newJobModal && (
+      {newJobModel && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-xl shadow-xl max-w-lg w-full relative">
             <button
-              onClick={() => setNewJobModal(false)}
+              onClick={() => setNewJobModel(false)}
               className="absolute top-2 right-2 text-gray-400 hover:bg-gray-100 p-1 rounded group transition:"
             >
               <X
@@ -206,18 +207,18 @@ const Home = () => {
               />
             </button>
             <NewJobModel
-              onClose={() => setNewJobModal(false)}
+              onClose={() => setNewJobModel(false)}
               onAddJob={handleAddJob}
             />
           </div>
         </div>
       )}
 
-      {editModal && (
+      {editModel && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-xl shadow-xl max-w-lg w-full relative">
             <button
-              onClick={() => seteditModal(false)}
+              onClick={() => seteditModel(false)}
               className="absolute top-2 right-2 text-gray-400 hover:bg-gray-100 p-1 rounded group"
             >
               <X
@@ -228,7 +229,7 @@ const Home = () => {
             <EditJobModel
               setJobs={setJobs}
               job={jobToEdit}
-              onClose={() => seteditModal(false)}
+              onClose={() => setEditModel(false)}
             />
           </div>
         </div>
