@@ -14,12 +14,13 @@ app.get("/", (req, res) => {
   res.json({ message: "Job Tracker is live!" });
 });
 
+//  "http://localhost:5173", 
+//       "https://job-tracker-app-backend.onrender.com"
+
 app.use(
   cors({
     origin: [ 
-      "*",
-      "http://localhost:5173", 
-      "https://job-tracker-app-backend.onrender.com"],
+      "*"],
     credentials: true,
   })
 );
