@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { UserCircle, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import NewJobModel from "./newJobModel";
+import NewJobModel from "./NewJobModel";
 import EditJobModel from "./editJobModel";
 
 const Home = () => {
