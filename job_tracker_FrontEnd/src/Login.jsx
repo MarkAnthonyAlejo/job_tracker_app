@@ -24,7 +24,8 @@ export default function Login() {
   };
 
   const loginUser = async () => {
-    const res = await fetch(`${process.env.REACT_APP_API_URL}/users/login`, {
+    const res = await fetch(`https://job-tracker-app-backend.onrender.com
+/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
