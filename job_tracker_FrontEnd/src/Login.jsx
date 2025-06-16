@@ -10,7 +10,7 @@ export default function Login() {
   const token = "your_token_value_here";
 
   const resgisterUser = async () => {
-    const res = await fetch(`${import.meta.env.URL}/users/register`, {
+    const res = await fetch(`${import.meta.env.VITE_URL}/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,8 @@ export default function Login() {
   };
 
   const loginUser = async () => {
-    const res = await fetch(`${import.meta.env.URL}/users/login`, {
+    console.log(import.meta.env.VITE_URL)
+    const res = await fetch(`${import.meta.env.VITE_URL}/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
