@@ -24,7 +24,6 @@ export default function Login() {
   };
 
   const loginUser = async () => {
-    console.log(import.meta.env.VITE_URL)
     const res = await fetch(`${import.meta.env.VITE_URL}/users/login`, {
       method: "POST",
       headers: {

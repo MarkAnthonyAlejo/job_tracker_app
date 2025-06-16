@@ -40,7 +40,7 @@ const Home = () => {
 
   useEffect(() => {
     const getUsersJobs = async () => {
-      const res = await fetch(`${import.meta.env.URL}/jobs/userJob`, {
+      const res = await fetch(`${import.meta.env.VITE_URL}/jobs/userJob`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const Home = () => {
   const fetchDataByStatus = async (status) => {
     try {
       const res = await fetch(
-        `${import.meta.env.URL}/jobs/filter?status=${status}`,
+        `${import.meta.env.VITE_URL}/jobs/filter?status=${status}`,
         {
           method: "GET",
           headers: {
@@ -74,7 +74,7 @@ const Home = () => {
 
   const showAllJobs = async () => {
     try {
-      const res = await fetch(`${import.meta.env.URL}/jobs/userJob`, {
+      const res = await fetch(`${import.meta.env.VITE_URL}/jobs/userJob`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const Home = () => {
   const removeJob = async (job) => {
     // console.log(job)
     try {
-      const res = await fetch(`${import.meta.env.URL}/jobs/${job.id}`, {
+      const res = await fetch(`${import.meta.env.VITE_URL}/jobs/${job.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const Home = () => {
     } catch (error) {
       console.error("Error deleting Job:", error);
     }
-    const resUpdatedJob = await fetch(`${import.meta.env.URL}/jobs/userJob`, {
+    const resUpdatedJob = await fetch(`${import.meta.env.VITE_URL}/jobs/userJob`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
