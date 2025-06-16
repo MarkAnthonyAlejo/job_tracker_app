@@ -14,13 +14,24 @@ app.get("/", (req, res) => {
   res.json({ message: "Job Tracker is live!" });
 });
 
-//  "http://localhost:5173", 
+//  "http://localhost:5173",
 //       "https://job-tracker-app-backend.onrender.com"
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://weather-app-weld-two-37.vercel.app/",
+  "https://your-frontend2.vercel.app",
+];
 
 app.use(
   cors({
-    origin: [ 
-      "*"],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
