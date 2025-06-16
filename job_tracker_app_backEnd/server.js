@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 const allowedOrigins = [
   "http://localhost:3000",
   "https://weather-app-weld-two-37.vercel.app/",
-  "https://your-frontend2.vercel.app",
+  "https://job-tracker-app-seven.vercel.app/",
 ];
 
 app.use(
