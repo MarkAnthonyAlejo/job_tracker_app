@@ -36,6 +36,8 @@ app.get("/", (req, res) => {
 //   })
 // );
 
+//https://job-tracker-app-backend.onrender.com --> This is the URL for the backend
+
 app.use(cors());
 
 //Routes
