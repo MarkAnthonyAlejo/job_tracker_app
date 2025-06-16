@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import NewJobModel from "./NewJobModel";
 import EditJobModel from "./EditJob";
 
-
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [newJobModel, setNewJobModel] = useState(false);
@@ -101,13 +100,16 @@ const Home = () => {
     } catch (error) {
       console.error("Error deleting Job:", error);
     }
-    const resUpdatedJob = await fetch(`${import.meta.env.VITE_URL}/jobs/userJob`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const resUpdatedJob = await fetch(
+      `${import.meta.env.VITE_URL}/jobs/userJob`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const updatedData = await resUpdatedJob.json();
     setJobs(updatedData);
