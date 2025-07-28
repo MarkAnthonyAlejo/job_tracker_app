@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BiSolidNotepad } from "react-icons/bi"
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -43,10 +44,13 @@ export default function Login() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-200 px-4">
-      <section className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
+    <main className="min-h-screen flex items-center justify-center [background-color:#5B5F97] px-4">
+      <section className="w-full max-w-md [background-color:#FFFFFC] p-8 rounded-2xl shadow-lg border-5 [border-color:#FFC246]">
         <header className="text-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-800">Welcome to J.T</h1>
+          <h1 className="text-3xl font-bold text-gray-800 flex items-center justify-center gap-1">
+            CareerTrackr
+            <BiSolidNotepad className="text-6xl text-[#FFC246]"/>
+          </h1>
         </header>
 
         <form className="flex flex-col gap-4">
@@ -62,7 +66,7 @@ export default function Login() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:[border-color:#EE9E9E]"
             />
           </fieldset>
 
@@ -78,7 +82,7 @@ export default function Login() {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:[border-color:#EE9E9E]"
             />
           </fieldset>
 
@@ -94,21 +98,21 @@ export default function Login() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:[border-color:#EE9E9E]"
             />
           </fieldset>
 
           <footer className="flex flex-col sm:flex-row justify-between gap-4 mt-6">
             <button
               type="button"
-              className="px-6 py-3 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition duration-300"
+              className="px-6 py-3 [background-color:#FFC246] text-white rounded-xl shadow-md hover:[background-color:#e)a931] transition duration-300 cursor-pointer"
               onClick={resgisterUser}
             >
               Create Account
             </button>
             <button
               type="button"
-              className="w-full px-6 py-3 bg-white text-blue-600 border border-blue-600 rounded-xl shadow-md hover:bg-blue-50 transition duration-300"
+              className="w-full px-6 py-3 bg-white text-color[#1E2938] border-2 [border-color:#FFC246] rounded-xl shadow-md hover:[background-color:#CBCEFF] transition duration-300 cursor-pointer"
               onClick={loginUser}
             >
               Log in

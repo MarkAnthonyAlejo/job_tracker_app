@@ -24,7 +24,7 @@ const EditJob = ({ job, onClose, setJobs }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/jobs/${job.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_URL}/jobs/${job.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const EditJob = ({ job, onClose, setJobs }) => {
 
       const updateJob = await response.json();
 
-      const resUpdatedJob = await fetch(`${process.env.REACT_APP_API_URL}/jobs/userJob`, {
+      const resUpdatedJob = await fetch(`${process.meta.env.VITE_URL}/jobs/userJob`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
