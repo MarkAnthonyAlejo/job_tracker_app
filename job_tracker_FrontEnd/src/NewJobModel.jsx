@@ -12,7 +12,7 @@ const NewJobModel = ({ onClose, onAddJob }) => {
 
   const addJob = async (e) => {
     e.preventDefault();
-    const res = await fetch(`${import.meta.env.REACT_APP_API_URL}/jobs`, {
+    const res = await fetch(`${import.meta.env.VITE_URL}/jobs`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
